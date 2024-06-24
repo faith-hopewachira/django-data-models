@@ -1,7 +1,11 @@
 from django.db import models
+from teacher.models import Teacher
 
 # Create your models here.
 class Course(models.Model):
+    # ONE TRAINER, ONE COURSE
+    teacher_id= models.ForeignKey(Teacher, on_delete=models.CASCADE)
+
     course_id = models.PositiveSmallIntegerField()
     course_name = models.CharField(max_length=30)
     course_department = models.CharField(max_length = 30)
